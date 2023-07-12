@@ -1,7 +1,7 @@
 This is my portfolio/website where I document my ventures.....
 
-# Todo 
-[] Automation with github action
+### Todo 
+- [ ] Automation with github action
 ---
 
 The design is inspired by [Graham Helton](https://www.linkedin.com/in/grahamhelton/) 
