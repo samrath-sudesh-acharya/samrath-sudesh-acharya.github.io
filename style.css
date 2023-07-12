@@ -160,4 +160,48 @@ padding: 1.5rem;
     color: #696969;
     font-weight: 500;
 }
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    padding: 0rem 1.5rem 0rem 1.5rem;
+  }
 
+  .content{
+    margin: 0.4rem 0 1rem 0;;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-size: large;
+  }
+
+  .blog__title {
+    font-size: 28px !important;
+  }
+
+  .navbar {
+    padding: 5px;
+  }
+
+  .navbar__right a {
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+
+  .author-image {
+    width: 36px;
+    height: 36px;
+  }
+
+  .blog__info p {
+    font-size: 12px;
+  }
+
+  .category {
+    font-size: 10px;
+    margin-right: 3px;
+  }
+
+  .footer_class {
+    margin-top: 5rem;
+  }
+}
