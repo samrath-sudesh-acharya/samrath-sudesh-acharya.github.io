@@ -40,15 +40,15 @@
             <p><p>I was solving a CTF, where I encountered a OTP based problem to be solved under the sub topic called <code>Infrastructure Security Assessment</code> . Where the webpage had a login page whose path was found in the robots.txt file, that asked for username and password. Just trying some default credential gave me the access <code>admin:admin</code>. After that the webpage asked for a 6 digit otp, it was a dead end for a while, till I found a solution. Before going through the my finding and the solution to the problem. Lets first understand, what is OTP, why it is used and are there alternatives? </p>
 <h2 class="animate">What is a OTP ?</h2>
 <p>With the increase in the cyber threat out in the digital world, MFA (Multi Factor Authentication) has gained popularity. MFA is just a two step verification on based various authentication factor that could be knowledge factors, possession factors, location factors and behavior factors. </p>
-<p>One of many method of MFA is the use of the OTP (One Time Password). The OTP is a code of any size, usually 4 or 6 in size that will expire after use or expire based on the some conditions. It is a popular choice because the ease it provides for the users and the developer to </p>
-<h2 class="animate">How does a OTP works ?</h2>
-<p>The OTP as mentioned before is a one time password that has two main components <code>seed</code> and <code>moving factor</code>.  The seed a secret key that must be kept safe in the authentication server and moving factor is a counter that is in sync with the OTP generated in the authentication server. This is overview of how generally the OTP works. But the way how the moving factor works give rise to types of OTP ,which are <code>HOTP</code> and <code>TOTP</code>
+<p>One of many method of MFA is the use of the OTP (One Time Password). The OTP is a code of any size, usually 4 or 6 in size that will expire after use or expire based on the some conditions. It is a popular choice because the ease it provides for the users and the developer. </p>
+<h2 class="animate">How does an OTP works ?</h2>
+<p>The OTP as mentioned before is a one time password that has two main components <code>seed</code> and <code>moving factor</code>.  The seed a secret key that must be kept safe in the authentication server and moving factor is a counter that is in sync with the OTP generated in the authentication server. This is just overview of how generally the OTP works. But the way how the moving factor works give rise to types of OTP ,which are <code>HOTP</code> and <code>TOTP</code>
 <img src="./images/Types_of_OTP.png" alt="Types of OTP.png"></p>
 <h3 class="animate">HOTP</h3>
-<p>The HOTP is a Hash based Message Algorithm Code (HMAC) , where the seed is a secret key that is kept in the authentication server and moving factor is the counter that is the used in sync with OTP code. It is a cryptographic key that is hashed which is not easy to be cracked to get the secret key/seed back. The hashing algorithm like SHA-1 ,SHA-256,etc is used in the making of the hash which is truncated to get the HOTP. </p>
+<p>The HOTP is a Hash based Message Algorithm Code (HMAC) , where the seed is a secret key that is kept in the authentication server and moving factor is the counter that is the used in sync with OTP code. It is a cryptographic key that is hashed which is not so easy to be cracked to get the secret key/seed back. The hashing algorithm like SHA-1 ,SHA-256,etc is used in the making of the hash which is truncated to get the HOTP. </p>
 <p><img src="./images/Working_of_HOTP.png" alt="Working of HOTP.png"></p>
 <h3 class="animate">TOTP</h3>
-<p>The TOTP is a time based OTP where the moving factor is a time based token that takes checks the current time and sets an expiration time to the token. Now the authentication server is in sync with the expiration time and it is called the <code>timestep</code>.</p>
+<p>The TOTP is a time based OTP where the moving factor is a time based token that checks the current time and sets an expiration time to the token. Now the authentication server is in sync with the expiration time and it is called the <code>timestep</code>.</p>
 <p><img src="./images/Working_of_TOTP.png" alt="Working of TOTP.png"></p>
 <h2 class="animate">CTF Solution</h2>
 <p>Coming back to the solution, when I saw the otp page, I tried to randomly insert 6 digit numbers . Nothing worked and I thought of brute forcing it , it gave me a second thought that it will be a tedious work with a large number of otp to brute force . I didn't find anything useful to try. It was only when I noticed there was a ftp port available that had anonymous login. Quickly accessed the ftp to the server and found a sql file.</p>
@@ -101,8 +101,8 @@ UNLOCK TABLES;
 
 -- Dump completed on 2023-03-24 11:51:06
 </code></pre>
-<p>From the above file it was clear the password and username is <code>admin</code> but there something termed as TOTP that had a value <code>YDTN2JY6CWKSK6PB3HNOAY4APASUVREM</code> . This is the biggest hint to find the otp. We got the seed for the TOTP generation. </p>
-<p>Search the internet I found a handy tool called <code><a href="https://www.nongnu.org/oath-toolkit/man-oathtool.html">oathtool</a></code> . Going through the document I found the command that will provide me the otp.</p>
+<p>From the above file it was clear the password and username is <code>admin</code> but there was something termed as TOTP that had a value <code>YDTN2JY6CWKSK6PB3HNOAY4APASUVREM</code> . This is the biggest hint to find the otp. We got the seed for the TOTP generation. </p>
+<p>Searching the internet I found a handy tool called <a href="https://www.nongnu.org/oath-toolkit/oathtool.1.html">oathtool</a> . Going through the document I found the command that will provide me the otp.</p>
 <pre><code class="language-bash">oathtool --base32 --totp &quot;YDTN2JY6CWKSK6PB3HNOAY4APASUVREM&quot;
 </code></pre>
 <p>Finally I generated the otp and got the flag.</p></p> 

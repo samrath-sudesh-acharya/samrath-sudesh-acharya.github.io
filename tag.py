@@ -14,12 +14,12 @@ def tag_page():
         html_content += '</ul>'
 
     # Read the existing page.html content
-    with open('page.html', 'r') as f:
+    with open('tag.html', 'r') as f:
         page_content = f.read()
 
     # Replace the <ul id="all-taxonomies"> section in page.html with the generated HTML content
     page_content = page_content.replace('<ul id="all-taxonomies"><ul>.*</ul></ul>', html_content)
 
     # Write the updated content back to page.html
-    with open('page.html', 'w') as f:
+    with open('tag.html', 'w') as f:
         f.write(page_content)
