@@ -102,7 +102,7 @@ UNLOCK TABLES;
 -- Dump completed on 2023-03-24 11:51:06
 </code></pre>
 <p>From the above file it was clear the password and username is <code>admin</code> but there something termed as TOTP that had a value <code>YDTN2JY6CWKSK6PB3HNOAY4APASUVREM</code> . This is the biggest hint to find the otp. We got the seed for the TOTP generation. </p>
-<p>Search the internet I found a handy tool called <code>oathtool</code> . Going through the document I found the command that will provide me the otp.</p>
+<p>Search the internet I found a handy tool called <code><a href="https://www.nongnu.org/oath-toolkit/man-oathtool.html">oathtool</a></code> . Going through the document I found the command that will provide me the otp.</p>
 <pre><code class="language-bash">oathtool --base32 --totp &quot;YDTN2JY6CWKSK6PB3HNOAY4APASUVREM&quot;
 </code></pre>
 <p>Finally I generated the otp and got the flag.</p></p> 
