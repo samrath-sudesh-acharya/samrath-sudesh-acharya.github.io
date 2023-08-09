@@ -1,5 +1,5 @@
 body {  
-    background-color: #171717;  
+    background-color: #17191a;  
     color: #fff;  
     line-height: 1.20;  
     padding: 0rem 1rem;
@@ -13,10 +13,10 @@ body {
     max-width: 80rem
   }  
 h1, h2, h3, h4, h5, h6 {
-    color: #fcf9de;
+    color: #f1f1f1;
     font-size:x-large; 
     font-weight: bold;
-    border-bottom: solid #202020 2px;
+    border-bottom: solid #1e1f26 2px;
 }
 
 article{
@@ -25,7 +25,7 @@ article{
     font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     font-size: 1rem;
     line-height: 1.4;
-    color: #ebe6d5;
+    color: #a3a8b5;
 }
 li{
     padding: 5px;
@@ -45,7 +45,7 @@ li{
   a{  
     text-decoration: none !important;  
     color: black;  
-    color: #689d6a;
+    color: #c6ff15;
   }  
  .navbar__right a{  
    font-size: 1rem;  
@@ -62,7 +62,7 @@ li{
    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
    font-size: 1rem;
    line-height: 1.20;
-   color: #c2c2c2;
+   color: #a3a8b5;
  }  
 
  .author-image{  
@@ -87,12 +87,17 @@ li{
   margin-block-start: 2px;  
   margin-block-end: 2px;  
   font-size: 14px;  
-}   
+} 
+
+.blog__image {
+  text-align: center; /* Center align images */
+}
+
 .blog__image > img{  
   height: auto;  
   width: 100%;  
   object-fit: contain;  
-  margin: 10px 0;  
+  margin: 10px auto;  
 }  
 .blog__categories{  
   display: flex;  
@@ -110,10 +115,11 @@ li{
   color: #fff;  
 }  
 .content img{  
-  height: auto;  
+  height: 30rem;  
   width: 100%;  
   object-fit: contain;  
-  margin: 10px 0;  
+  margin: 10px auto;  
+  text-align: center;
 }  
 
 blockquote {
@@ -122,16 +128,39 @@ blockquote {
    margin: medium 0;
    padding: 8px 8px;
    }
+
+pre {
+  border: none; /* Remove border from pre element */
+  background-color: transparent; /* Use transparent background */
+  }
+
+
 code {
-   color: #83a598;
-   background-color: #171717;
+   color: #069343;
+   background-color: #17191a;
    padding: 0px 4px;
    font-style: italic;
    }
 
+/* Highlighting for different programming languages */
+code[class*="language-"] {
+  color: #adcb52; /* Set code text color */
+  font-size: 1rem; /* Set code font size */
+  display: block; /* Display as block to create a box */
+  background-color: #2a2c2e; /* Background color for code box */
+  padding: 1rem; /* Padding for code box */
+  border-radius: 4px; /* Rounded corners for code box */
+  overflow-x: auto; /* Add horizontal scrollbar if needed */
+  box-shadow: #000;
+}
+
 pre code{
     white-space:pre-wrap !important;
     all: unset;
+}
+
+.line-numbers-rows > span:before {
+  color: #555; /* Line number color */
 }
 
 .highlight {
@@ -175,7 +204,7 @@ padding: 1.5rem;
   }
 
   .blog__title {
-    font-size: 28px !important;
+    font-size: 30px !important;
   }
 
   .navbar {
@@ -183,7 +212,7 @@ padding: 1.5rem;
   }
 
   .navbar__right a {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-right: 5px;
   }
 
@@ -193,7 +222,7 @@ padding: 1.5rem;
   }
 
   .blog__info p {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .category {
@@ -208,7 +237,7 @@ padding: 1.5rem;
 
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 0 1.5rem; /* Set equal left and right padding */
   }
 
