@@ -254,7 +254,8 @@ padding: 1.5rem;
   }
 
   .navbar {
-    padding: 5px;
+    padding: 1px;
+    margin-bottom: 40px;
   }
 
   .navbar__right a {
